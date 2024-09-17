@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaLab</title>
+    <!-- ربط ملف الـ CSS بالمسار المحدد -->
+    <link rel="stylesheet" href="C:/Users/Dell/pharlab/test3/style.css">
+</head>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo/ico.jpg" alt="Logo">
+            <span>Pharmalab</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">تواصل معنا</a></li>
+            <li><a href="#patient-info">الفحوصات</a></li>
+            <li><a href="#lab-tests">معلومات المريض</a></li>
+            <li><a href="#contact">الصفحة الرئيسية</a></li>
+        </ul>
+        <button class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+    </nav>
+
+    <div class="blood-test-section">
+        <h1>فحوصات الدم</h1>
+
+        <!-- فحص RBC -->
+        <div class="test-block">
+            <h2> RBC </h2>
+            <h2>فحص خلايا الدم الحمراء </h2>
+            <form id="rbc-form">
+                <label for="rbc-value">أدخل نتيجة الفحص:</label>
+                <input type="number" id="rbc-value" name="rbc-value" placeholder="مثال: 4.5 مليون خلية/مل">
+                <button type="button" onclick="checkRBC()">فحص</button>
+            </form>
+            <div id="rbc-result"></div>
+            <div id="rbc-advice"></div>
+            <!-- الصور الصيدلانية - مخفية افتراضياً -->
+            <div class="pharma-images" id="rbc-images" style="display: none;">
+                <img src="supplement/feroglobin.png" alt="منتج صيدلاني 1">
+                <img src="supplement/Irofix-Capsule.png" alt="منتج صيدلاني 2">
+                <img src="supplement/forti.png" alt="منتج صيدلاني 3">
+            </div>
+        </div>
+
+        <!-- فحص WBC -->
+        <div class="test-block">
+            <h2> WBC </h2>
+            <h2>فحص خلايا الدم البيضاء </h2>
+            <form id="wbc-form">
+                <label for="wbc-value">أدخل نتيجة الفحص:</label>
+                <input type="number" id="wbc-value" name="wbc-value" placeholder="مثال: 6000 خلية/مل">
+                <button type="button" onclick="checkWBC()">فحص</button>
+            </form>
+            <div id="wbc-result"></div>
+            <div id="wbc-advice"></div>
+            <!-- الصور الصيدلانية - مخفية افتراضياً -->
+            <div class="pharma-images" id="wbc-images" style="display: none;">
+                <img src="product1.jpg" alt="منتج صيدلاني 1">
+                <img src="product2.jpg" alt="منتج صيدلاني 2">
+                <img src="product3.jpg" alt="منتج صيدلاني 3">
+            </div>
+        </div>
+
+        <!-- فحص الصفائح الدموية (Platelets) -->
+        <div class="test-block">
+            <h2> Platelets</h2>
+            <h2>فحص الصفائح الدموية </h2>
+            <form id="platelets-form">
+                <label for="platelets-value">أدخل نتيجة الفحص:</label>
+                <input type="number" id="platelets-value" name="platelets-value" placeholder="مثال: 250000 خلية/مل">
+                <button type="button" onclick="checkPlatelets()">فحص</button>
+            </form>
+            <div id="platelets-result"></div>
+            <div id="platelets-advice"></div>
+            <!-- الصور الصيدلانية - مخفية افتراضياً -->
+            <div class="pharma-images" id="platelets-images" style="display: none;">
+                <img src="product1.jpg" alt="منتج صيدلاني 1">
+                <img src="product2.jpg" alt="منتج صيدلاني 2">
+                <img src="product3.jpg" alt="منتج صيدلاني 3">
+            </div>
+        </div>
+
+        <!-- فحص الهيموغلوبين (Hemoglobin) -->
+        <div class="test-block">
+            <h2> Hemoglobin </h2>
+            <h2>فحص الهيموغلوبين </h2>
+            <form id="hemoglobin-form">
+                <label for="hemoglobin-value">أدخل نتيجة الفحص (g/dL):</label>
+                <input type="number" id="hemoglobin-value" name="hemoglobin-value" placeholder="مثال: 13 g/dL">
+                <button type="button" onclick="checkHemoglobin()">فحص</button>
+            </form>
+            <div id="hemoglobin-result"></div>
+            <div id="hemoglobin-advice"></div>
+            <!-- الصور الصيدلانية - مخفية افتراضياً -->
+            <div class="pharma-images" id="hemoglobin-images" style="display: none;">
+                <img src="product1.jpg" alt="منتج صيدلاني 1">
+                <img src="product2.jpg" alt="منتج صيدلاني 2">
+                <img src="product3.jpg" alt="منتج صيدلاني 3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // فحص RBC
+        function checkRBC() {
+            const rbcValue = parseFloat(document.getElementById("rbc-value").value);
+            const normalRange = { min: 4.2, max: 6.1 }; // النطاق الطبيعي للـ RBC
+            const resultElement = document.getElementById("rbc-result");
+            const adviceSection = document.getElementById("rbc-advice");
+            const imagesDiv = document.getElementById("rbc-images");
+
+            if (!isNaN(rbcValue)) {
+                if (rbcValue < normalRange.min || rbcValue > normalRange.max) {
+                    resultElement.innerHTML = `<p style="color: red;">النتيجة خارج النطاق الطبيعي (${normalRange.min} - ${normalRange.max} مليون خلية/مل)</p>`;
+                    adviceSection.innerHTML = `<p>النصائح: استشر الطبيب وتناول مكملات الحديد.</p>`;
+                    imagesDiv.style.display = "block"; // إظهار الصور
+                } else {
+                    resultElement.innerHTML = `<p style="color: green;">النتيجة ضمن النطاق الطبيعي (${normalRange.min} - ${normalRange.max} مليون خلية/مل)</p>`;
+                    adviceSection.innerHTML = "";
+                    imagesDiv.style.display = "none"; // إخفاء الصور
+                }
+            } else {
+                resultElement.innerHTML = "<p style='color: red;'>يرجى إدخال قيمة صحيحة.</p>";
+                adviceSection.innerHTML = "";
+                imagesDiv.style.display = "none"; // إخفاء الصور
+            }
+        }
+
+        // فحص WBC
+        function checkWBC() {
+            const wbcValue = parseFloat(document.getElementById("wbc-value").value);
+            const normalRange = { min: 4500, max: 11000 }; // النطاق الطبيعي للـ WBC
+            const resultElement = document.getElementById("wbc-result");
+            const adviceSection = document.getElementById("wbc-advice");
+            const imagesDiv = document.getElementById("wbc-images");
+
+            if (!isNaN(wbcValue)) {
+                if (wbcValue < normalRange.min || wbcValue > normalRange.max) {
+                    resultElement.innerHTML = `<p style="color: red;">النتيجة خارج النطاق الطبيعي (${normalRange.min} - ${normalRange.max} خلية/مل)</p>`;
+                    adviceSection.innerHTML = `<p>النصائح: استشر الطبيب وتناول الأطعمة الغنية بفيتامين C.</p>`;
+                    imagesDiv.style.display = "block"; // إظهار الصور
+                } else {
+                    resultElement.innerHTML = `<p style="color: green;">النتيجة ضمن النطاق الطبيعي (${normalRange.min} - ${normalRange.max} خلية/مل)</p>`;
+                    adviceSection.innerHTML = "";
+                    imagesDiv.style.display = "none"; // إخفاء الصور
+                }
+            } else {
+                resultElement.innerHTML = "<p style='color: red;'>يرجى إدخال قيمة صحيحة.</p>";
+                adviceSection.innerHTML = "";
+                imagesDiv.style.display = "none"; // إخفاء الصور
+            }
+        }
+
+        // فحص الصفائح الدموية
+        function checkPlatelets() {
+            const plateletsValue = parseFloat(document.getElementById("platelets-value").value);
+            const normalRange = { min: 150000, max: 450000 }; // النطاق الطبيعي للصفائح الدموية
+            const resultElement = document.getElementById("platelets-result");
+            const adviceSection = document.getElementById("platelets-advice");
+            const imagesDiv = document.getElementById("platelets-images");
+
+            if (!isNaN(plateletsValue)) {
+                if (plateletsValue < normalRange.min || plateletsValue > normalRange.max) {
+                    resultElement.innerHTML = `<p style="color: red;">النتيجة خارج النطاق الطبيعي (${normalRange.min} - ${normalRange.max} خلية/مل)</p>`;
+                    adviceSection.innerHTML = `<p>النصائح: استشر الطبيب وتناول الأطعمة الغنية بالحديد.</p>`;
+                    imagesDiv.style.display = "block"; // إظهار الصور
+                } else {
+                    resultElement.innerHTML = `<p style="color: green;">النتيجة ضمن النطاق الطبيعي (${normalRange.min} - ${normalRange.max} خلية/مل)</p>`;
+                    adviceSection.innerHTML = "";
+                    imagesDiv.style.display = "none"; // إخفاء الصور
+                }
+            } else {
+                resultElement.innerHTML = "<p style='color: red;'>يرجى إدخال قيمة صحيحة.</p>";
+                adviceSection.innerHTML = "";
+                imagesDiv.style.display = "none"; // إخفاء الصور
+            }
+        }
+
+        // فحص الهيموغلوبين
+        function checkHemoglobin() {
+            const hemoglobinValue = parseFloat(document.getElementById("hemoglobin-value").value);
+            const normalRange = { min: 13.5, max: 17.5 }; // النطاق الطبيعي للهيموغلوبين للرجال (يمكن تغييرها بناءً على الجنس)
+            const resultElement = document.getElementById("hemoglobin-result");
+            const adviceSection = document.getElementById("hemoglobin-advice");
+            const imagesDiv = document.getElementById("hemoglobin-images");
+
+            if (!isNaN(hemoglobinValue)) {
+                if (hemoglobinValue < normalRange.min || hemoglobinValue > normalRange.max) {
+                    resultElement.innerHTML = `<p style="color: red;">النتيجة خارج النطاق الطبيعي (${normalRange.min} - ${normalRange.max} g/dL)</p>`;
+                    adviceSection.innerHTML = `<p>النصائح: استشر الطبيب وتناول مكملات الحديد.</p>`;
+                    imagesDiv.style.display = "block"; // إظهار الصور
+                } else {
+                    resultElement.innerHTML = `<p style="color: green;">النتيجة ضمن النطاق الطبيعي (${normalRange.min} - ${normalRange.max} g/dL)</p>`;
+                    adviceSection.innerHTML = "";
+                    imagesDiv.style.display = "none"; // إخفاء الصور
+                }
+            } else {
+                resultElement.innerHTML = "<p style='color: red;'>يرجى إدخال قيمة صحيحة.</p>";
+                adviceSection.innerHTML = "";
+                imagesDiv.style.display = "none"; // إخفاء الصور
+            }
+        }
+    </script>
+</body>
+</html>

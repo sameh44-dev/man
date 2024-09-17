@@ -1,0 +1,242 @@
+/* إعداد الخط */
+body {
+    font-family: 'Amiri', serif;
+    margin: 0;
+    background-color: white;
+    color: #03045E;
+}
+
+/* إزالة المسافات الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #03045E;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo img {
+    height: 60px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #03045E;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+}
+
+/* تنسيق قسم فحص الدم */
+.blood-test-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blood-test-section h1 {
+    text-align: center;
+    color: #03045E;
+}
+
+.blood-test-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #03045E;
+}
+
+.blood-test-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.blood-test-section button {
+    background-color: #03045E;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.blood-test-section button:hover {
+    background-color: #007bff;
+}
+
+#ferritin-result, #advice-section {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* تنسيق قسم الفحوصات الدموية */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #03045E;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #03045E;
+    margin-top: 20px;
+    font-size: 36px;
+}
+
+.blood-test-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.test-block {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px; /* عرض الفحوصات */
+    text-align: center; /* محاذاة النصوص والحقول في الوسط */
+}
+
+h2 {
+    font-size: 24px;
+    color: #03045E;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 20px;
+    border: 2px solid #03045E;
+    border-radius: 5px;
+    text-align: center; /* توسيط النص داخل الحقل */
+}
+
+button {
+    background-color: #03045E;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+/* تنسيق النتيجة والنصائح */
+#rbc-result, #wbc-result, #platelets-result, #hemoglobin-result {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#rbc-advice, #wbc-advice, #platelets-advice, #hemoglobin-advice {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #03045E;
+    text-align: center; /* النصائح تبقى بمحاذاة اليسار */
+}
+
+/* تنسيق نصوص النطاق الطبيعي */
+p {
+    margin: 5px 0;
+}
+
+/* تنسيق الصور في كل فحص */
+.pharma-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* المسافة بين الصور */
+    margin-top: 20px;
+}
+
+.pharma-images img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pharma-images img:hover {
+    transform: scale(1.1); /* تكبير الصورة عند التمرير عليها */
+}

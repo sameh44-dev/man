@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmalab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="website icon" type="png"
+    href="logo/ico.jpg"
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-mainbg">
+        <div class="logo">
+            <img src="logo/ico.jpg" alt="Logo">
+            <span>Pharmalab</span>
+        </div>
+        <button class="navbar-toggler" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navbarSupportedContent">
+            <li><a href="#about-service">تواصل معنا</a>
+            <li><a href="#about-service">عن الخدمة</a>
+            <li><a href="#tests"><i class="fas fa-vial"></i>الفحوصات</a></li>
+            <li><a href="#patient-info"><i class="fas fa-user"></i>معلومات المريض</a></li>
+            <li><a href="#home"><i class="fas fa-home"></i>الصفحة الرئيسية</a></li>
+
+        </ul>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navLinks = document.querySelector('.nav-links');
+        
+            navbarToggler.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+            });
+        });
+        </script>
+        
+    <!-- Home -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>PharmaLab</h1>
+            <a href="#patient-info" class="btn-start">ابدأ</a>
+        </div>
+    </section>
+
+    <!-- Patient Info Section -->
+    <section id="patient-info" class="patient-info-section" data-aos="fade-up">
+        <div data-aos="fade-up"></div>
+        <div class="container">
+            <h1>معلومات المريض</h1>
+            <h2>ادخل معلوماتك الصحيحة لضمان صحة جيدة</h2>
+            <form>
+                <label for="age">العمر</label>
+                <input type="number" id="age" name="age" placeholder="ادخل عمرك" required>
+
+                <label for="weight">الوزن</label>
+                <input type="number" id="weight" name="weight" placeholder="ادخل وزنك" required>
+
+                <label for="gender">الجنس</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>اختر الجنس</option>
+                    <option value="male">ذكر</option>
+                    <option value="female">أنثى</option>
+                </select>
+
+                <button type="submit" class="btn-save">حفظ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!-- tests Section -->
+<section id="tests" class="tests-section">
+    <div class="container">
+        <h1 class="section-title">ما نتميز به</h1>
+        <h2 class="section-subtitle">"تحليل دقيق، مشورة صيدلانية متميزة"</h2>
+        
+        <div class="cards-container">
+            <div class="card">
+                <img src="images/kidney.jpg" alt="اختبار 1">
+                <h3>فحص الكلى</h3>
+                <a href="test1/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+            <div class="card">
+                <img src="images/vitamin.jpg" alt="اختبار 2">
+                <h3>فحص الفيتامينات</h3>
+                <a href="test2/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+            <div class="card">
+                <img src="images/blood.jpg" alt="اختبار 3">
+                <h3>فحص الدم</h3>
+                <a href="test3/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+            <div class="card">
+                <img src="images/thy.jpg" alt="اختبار 4">
+                <h3>فحص الغدة الدرقية</h3>
+                <a href="test4/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+            <div class="card">
+                <img src="images/urine.jpg" alt="اختبار 5">
+                <h3>فحص البول</h3>
+                <a href="test5/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+            <div class="card">
+                <img src="images/liver.jpg" alt="اختبار 6">
+                <h3>فحص الكبد</h3>
+                <a href="test6/index.html" class="btn-start">ابدأ الآن</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about-service" class="about-section">
+    <div class="container">
+        <h2 class="section-title"> ! ماذا نقدم </h2>
+        <p class="section-description">نقدم لك خدمة تحليل دقيقة لنتائج الفحوصات المخبرية بناءً على معلوماتك الشخصية مثل العمر والوزن. من خلال إدخال نتائج الفحوصات الخاصة بك، نقوم بمقارنتها مع المعدلات الطبيعية المناسبة لك، ثم نقدم لك تحليلاً شاملاً حول ما إذا كانت نتائجك ضمن النطاق الطبيعي أو بحاجة إلى تحسين.</p>    </div>
+</section>
+
+<!-- تواصل معنا Section -->
+<section id="contact" class="contact-section">
+    <h2 class="section-title">كلية الصيدلة</h2>
+    <div class="contact-container">
+        <div class="contact-logo">
+            <!-- سيتم إضافة الشعار هنا لاحقاً -->
+            <img src="images/جامعة الزرقاء الاردن.png" alt="الشعار" id="logo" /> <!-- استبدل logo-placeholder.png بالشعار الفعلي -->
+        </div>
+        <div class="contact-info">
+            <p><a href="mailto:your-email@example.com">your-email@example.com</a></p> <!-- عند الضغط يفتح الجيميل -->
+            <p><a href="https://wa.me/your-phone-number" target="_blank">+123456789</a></p> <!-- عند الضغط يفتح الواتساب -->
+        </div>
+    </div>
+</section>
+
+<style>
+    /* تنسيق قسم تواصل معنا */
+    .contact-section {
+        background-color: #f9f9f9;
+        padding: 15px 0;
+        height: auto;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-logo img {
+        max-width: 150px; /* حجم الشعار */
+        height: auto;
+    }
+
+    .contact-info {
+        text-align: left;
+    }
+
+    .contact-info p {
+        font-size: 18px;
+        color: #03045E;
+        margin: 10px 0;
+    }
+
+    .contact-info a {
+        color: #03045E;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: #007bff; /* لون الروابط عند التمرير */
+    }
+
+    /* تنسيق العنوان */
+    .contact-section .section-title {
+        font-size: 36px;
+        color: #03045E;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
